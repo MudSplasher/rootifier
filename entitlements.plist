@@ -20,7 +20,7 @@
 	<array>
 		<string>/</string>
 		<string>/private/preboot/</string>
-		<string>/var/</string>
+		<string>/</string>
 		<string>/var/mobile/Documents</string>
 		<string>/private/var/</string>
 		<string>/private/var/mobile/Documents</string>
