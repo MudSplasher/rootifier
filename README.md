@@ -1,7 +1,7 @@
 <img src="rootifiericon.png" alt="Logo" width="70" height="70">
 
 # Derootifier
-"Derootifies" jailbreak .deb files to support rootless jailbreaks. Uses the Procursus rootless converter to do so. **This doesn't work with all tweaks!** Install with TrollStore.
+"Rootifies" jailbreak .deb files to support rootful jailbreaks. Uses the Procursus an custom rootful converter to do so. **This doesn't work with all tweaks!** Install with TrollStore.
 
 # License
 AuxiliaryExecute - https://github.com/Lakr233/AuxiliaryExecute/blob/main/LICENSE (MIT)
