@@ -1,4 +1,4 @@
-<img src="rootifiericon.png" alt="Logo" width="70" height="70">
+<img src="rootiferlogo.png" alt="Logo" width="70" height="70">
 
 # Derootifier
 "Rootifies" jailbreak .deb files to support rootful jailbreaks. Uses the Procursus an custom rootful converter to do so. **This doesn't work with all tweaks!** Install with TrollStore.
