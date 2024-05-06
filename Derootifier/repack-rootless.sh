@@ -5,7 +5,8 @@
 ### INFO: Repacks deb as rootless with iphoneos-arm64 arch, moves legacy tweak dir to
 ###       new directory, and resigns. Does not do any further modification.
 
-### Modified by haxi0
+### Modified by MudSplasher
+### Orginal Code by haxi0
 
 export TMPDIR=/var/mobile/.Derootifier
 
@@ -47,23 +48,23 @@ fi
 
 dpkg-deb -R "$1" "$TEMPDIR_OLD"
 
-if [ -d "$TEMPDIR_OLD/var/jb" ]; then
-    echo "Deb already rootless. Skipping and exiting cleanly."
+if [ -d "$TEMPDIR_OLD/jb" ]; then
+    echo "Deb already rootful Skipping and exiting cleanly."
     rm -rf "$TEMPDIR_OLD" "$TEMPDIR_NEW"
     exit 0;
 fi
 
 mkdir -p "$TEMPDIR_NEW"/var/jb
 cp -a "$TEMPDIR_OLD"/DEBIAN "$TEMPDIR_NEW"
-sed 's|iphoneos-arm|iphoneos-arm64|' < "$TEMPDIR_OLD"/DEBIAN/control > "$TEMPDIR_NEW"/DEBIAN/control
+sed 's|iphoneos-arm64|iphoneos-arm|' < "$TEMPDIR_OLD"/DEBIAN/control > "$TEMPDIR_NEW"/DEBIAN/control
 
 rm -rf "$TEMPDIR_OLD"/DEBIAN
 mv -f "$TEMPDIR_OLD"/.* "$TEMPDIR_OLD"/* "$TEMPDIR_NEW"/var/jb >/dev/null 2>&1 || true
 mv -f "$TEMPDIR_OLD"/* "$TEMPDIR_OLD"/* "$TEMPDIR_NEW"/var/jb >/dev/null 2>&1 || true
 
-if [ -d "$TEMPDIR_NEW/var/jb/Library/MobileSubstrate/DynamicLibraries" ]; then
+if [ -d "$TEMPDIR_NEW/jb/Library/MobileSubstrate/DynamicLibraries" ]; then
     mkdir -p "$TEMPDIR_NEW/var/jb/usr/lib"
-    mv "$TEMPDIR_NEW/var/jb/Library/MobileSubstrate/DynamicLibraries" "$TEMPDIR_NEW/var/jb/usr/lib/TweakInject"
+    mv "$TEMPDIR_NEW/jb/Library/MobileSubstrate/DynamicLibraries" "$TEMPDIR_NEW/jb/usr/lib/TweakInject"
 fi
 
 find "$TEMPDIR_NEW" -type f | while read -r file; do
