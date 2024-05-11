@@ -84,7 +84,7 @@ find "$TEMPDIR_NEW" -type f | while read -r file; do
         done
     fi
     install_name_tool -add_rpath "/usr/lib" "$file" >/dev/null 2>&1
-    install_name_tool -add_rpath "/var/jb/usr/lib" "$file" >/dev/null 2>&1
+    install_name_tool -add_rpath "/jb/usr/lib" "$file" >/dev/null 2>&1
 
     $LDID -s "$file"
   fi
